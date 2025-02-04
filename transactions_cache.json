@@ -1,0 +1,41 @@
+{
+  "CkBWowCj1SFFVDk8Fkn9b2S3gV8kgBm9MEPG2YQvmhFB-filtered-transactions": {
+    "fetch_time": "2025-02-04T19:39:39.646281",
+    "filtered_data": [
+      {
+        "time_ago": "1 day ago",
+        "timestamp": 1738548495,
+        "time": "2025-02-03 05:08:15",
+        "source": "RAYDIUM",
+        "description": "CkBWowCj1SFFVDk8Fkn9b2S3gV8kgBm9MEPG2YQvmhFB swapped 1 SOL for 17412.765636 CreiuhfwdWCN5mJbMJtA9bBpYQrQF2tCBuZwSPWfpump",
+        "sold_tokens": [
+          {
+            "symbol": "SOL",
+            "address": "So11111111111111111111111111111111111111112",
+            "amount": 1.0
+          },
+          {
+            "symbol": "SOL",
+            "address": "So11111111111111111111111111111111111111112",
+            "amount": 1.0,
+            "name": "Wrapped SOL",
+            "current_price": 216.29
+          }
+        ],
+        "bought_tokens": [
+          {
+            "symbol": "PYTHIA",
+            "address": "CreiuhfwdWCN5mJbMJtA9bBpYQrQF2tCBuZwSPWfpump",
+            "amount": 17412.765636,
+            "name": "PYTHIA",
+            "current_price": 0.01789398
+          }
+        ]
+      }
+    ]
+  },
+  "AgvvMsZ3gDy3d6x5Ne4UA38JzSFuRSqvvX5VU4Dn1P2Y-filtered-transactions": {
+    "fetch_time": "2025-02-04T20:51:21.057661",
+    "filtered_data": []
+  }
+}

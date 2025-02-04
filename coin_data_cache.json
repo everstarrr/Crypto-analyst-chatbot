@@ -1,0 +1,42 @@
+{
+  "solana-So11111111111111111111111111111111111111112": {
+    "fetch_time": "2025-02-04T20:26:08.085126",
+    "data": {
+      "name": "Wrapped SOL",
+      "symbol": "SOL",
+      "current_price": 214.68,
+      "web_slug": "wrapped-sol-2",
+      "asset_platform_id": "solana"
+    }
+  },
+  "solana-CreiuhfwdWCN5mJbMJtA9bBpYQrQF2tCBuZwSPWfpump": {
+    "fetch_time": "2025-02-04T20:26:06.936520",
+    "data": {
+      "name": "PYTHIA",
+      "symbol": "PYTHIA",
+      "current_price": 0.01744499,
+      "web_slug": "pythia",
+      "asset_platform_id": "solana"
+    }
+  },
+  "solana-5rSP1W2Jkir4Qy1M6rEYXFFi5HgbhrkVTajimrVgpump": {
+    "fetch_time": "2025-02-04T20:26:14.369152",
+    "data": {
+      "name": "LEGIT",
+      "symbol": "LEGIT",
+      "current_price": 0.0029836,
+      "web_slug": "legit",
+      "asset_platform_id": "solana"
+    }
+  },
+  "solana-Gu3LDkn7Vx3bmCzLafYNKcDxv2mH7YN44NJZFXnypump": {
+    "fetch_time": "2025-02-04T20:26:15.795728",
+    "data": {
+      "name": "Degen Spartan AI",
+      "symbol": "DEGENAI",
+      "current_price": 0.01142744,
+      "web_slug": "degen-spartan-ai",
+      "asset_platform_id": "solana"
+    }
+  }
+}

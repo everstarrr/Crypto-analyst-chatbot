@@ -1,0 +1,177 @@
+{
+  "CreiuhfwdWCN5mJbMJtA9bBpYQrQF2tCBuZwSPWfpump-token-12H-1737772532-1738647000-solana-USD": {
+    "fetch_time": "2025-02-04T11:57:52.651204",
+    "items": [
+      {
+        "time": "2025-01-25 15:00:00",
+        "timestamp": 1737806400,
+        "price": "0.0210 USD"
+      },
+      {
+        "time": "2025-01-26 03:00:00",
+        "timestamp": 1737849600,
+        "price": "0.0211 USD"
+      },
+      {
+        "time": "2025-01-26 15:00:00",
+        "timestamp": 1737892800,
+        "price": "0.0183 USD"
+      },
+      {
+        "time": "2025-01-27 03:00:00",
+        "timestamp": 1737936000,
+        "price": "0.0161 USD"
+      },
+      {
+        "time": "2025-01-27 15:00:00",
+        "timestamp": 1737979200,
+        "price": "0.0221 USD"
+      },
+      {
+        "time": "2025-01-28 03:00:00",
+        "timestamp": 1738022400,
+        "price": "0.0228 USD"
+      },
+      {
+        "time": "2025-01-28 15:00:00",
+        "timestamp": 1738065600,
+        "price": "0.0184 USD"
+      },
+      {
+        "time": "2025-01-29 03:00:00",
+        "timestamp": 1738108800,
+        "price": "0.0177 USD"
+      },
+      {
+        "time": "2025-01-29 15:00:00",
+        "timestamp": 1738152000,
+        "price": "0.0174 USD"
+      },
+      {
+        "time": "2025-01-30 03:00:00",
+        "timestamp": 1738195200,
+        "price": "0.0189 USD"
+      },
+      {
+        "time": "2025-01-30 15:00:00",
+        "timestamp": 1738238400,
+        "price": "0.0133 USD"
+      },
+      {
+        "time": "2025-01-31 03:00:00",
+        "timestamp": 1738281600,
+        "price": "0.0148 USD"
+      },
+      {
+        "time": "2025-01-31 15:00:00",
+        "timestamp": 1738324800,
+        "price": "0.0155 USD"
+      },
+      {
+        "time": "2025-02-01 03:00:00",
+        "timestamp": 1738368000,
+        "price": "0.0149 USD"
+      },
+      {
+        "time": "2025-02-01 15:00:00",
+        "timestamp": 1738411200,
+        "price": "0.0142 USD"
+      },
+      {
+        "time": "2025-02-02 03:00:00",
+        "timestamp": 1738454400,
+        "price": "0.0131 USD"
+      },
+      {
+        "time": "2025-02-02 15:00:00",
+        "timestamp": 1738497600,
+        "price": "0.0123 USD"
+      },
+      {
+        "time": "2025-02-03 03:00:00",
+        "timestamp": 1738540800,
+        "price": "0.0153 USD"
+      },
+      {
+        "time": "2025-02-03 15:00:00",
+        "timestamp": 1738584000,
+        "price": "0.0164 USD"
+      },
+      {
+        "time": "2025-02-04 03:00:00",
+        "timestamp": 1738627200,
+        "price": "0.0159 USD"
+      }
+    ]
+  },
+  "CreiuhfwdWCN5mJbMJtA9bBpYQrQF2tCBuZwSPWfpump-token-12H-1738548495-1738663285-solana-USD": {
+    "fetch_time": "2025-02-04T13:01:26.144515",
+    "items": [
+      {
+        "time": "2025-02-03 15:00:00",
+        "timestamp": 1738584000,
+        "price": "0.0164 USD"
+      },
+      {
+        "time": "2025-02-04 03:00:00",
+        "timestamp": 1738627200,
+        "price": "0.0165 USD"
+      }
+    ]
+  },
+  "CreiuhfwdWCN5mJbMJtA9bBpYQrQF2tCBuZwSPWfpump-token-12H-1738548495-1738663691-solana-USD": {
+    "fetch_time": "2025-02-04T13:08:12.573892",
+    "items": [
+      {
+        "time": "2025-02-03 15:00:00",
+        "timestamp": 1738584000,
+        "price": "0.0164 USD"
+      },
+      {
+        "time": "2025-02-04 03:00:00",
+        "timestamp": 1738627200,
+        "price": "0.0168 USD"
+      }
+    ]
+  },
+  "So11111111111111111111111111111111111111112-token-12H-1738548495-1738690162-solana-USD": {
+    "fetch_time": "2025-02-04T20:29:23.413975",
+    "items": [
+      {
+        "time": "2025-02-03 15:00:00",
+        "timestamp": 1738584000,
+        "price": "216.4454 USD"
+      },
+      {
+        "time": "2025-02-04 03:00:00",
+        "timestamp": 1738627200,
+        "price": "207.8486 USD"
+      },
+      {
+        "time": "2025-02-04 15:00:00",
+        "timestamp": 1738670400,
+        "price": "214.0812 USD"
+      }
+    ]
+  },
+  "CreiuhfwdWCN5mJbMJtA9bBpYQrQF2tCBuZwSPWfpump-token-12H-1738548495-1738690359-solana-USD": {
+    "fetch_time": "2025-02-04T20:32:39.989154",
+    "items": [
+      {
+        "time": "2025-02-03 15:00:00",
+        "timestamp": 1738584000,
+        "price": "0.0164 USD"
+      },
+      {
+        "time": "2025-02-04 03:00:00",
+        "timestamp": 1738627200,
+        "price": "0.0171 USD"
+      },
+      {
+        "time": "2025-02-04 15:00:00",
+        "timestamp": 1738670400,
+        "price": "0.0172 USD"
+      }
+    ]
+  }
+}
