@@ -33,8 +33,8 @@ def get_time_ago(timestamp):
     return "just now"
 
 def get_coin_data(contract_address, asset_platform_id='solana', cache_file='coin_data_cache.json'):
-    """Retrieve coin data with caching"""
-    api_key = os.environ.get("COINGECKO_API_KEY")
+    """Retrieve coin data with caching using Helius API"""
+    api_key = os.environ.get("HeliusApi")
     cache_key = f"{asset_platform_id}-{contract_address}"
     
     # Load coin cache
@@ -54,12 +54,20 @@ def get_coin_data(contract_address, asset_platform_id='solana', cache_file='coin
         if cache_age <= timedelta(seconds=60):
             return cache_entry['data']
 
-    # API call for fresh data
-    url = f'https://api.coingecko.com/api/v3/coins/{asset_platform_id}/contract/{contract_address}'
-    headers = {'x-cg-demo-api-key': api_key}
+    # Helius API call for fresh data
+    url = "https://mainnet.helius-rpc.com/?api-key=" + api_key
+    headers = {"Content-Type": "application/json"}
+    payload = {
+        "jsonrpc": "2.0",
+        "id": "test",
+        "method": "getAsset",
+        "params": {
+            "id": contract_address
+        }
+    }
     
     try:
-        response = requests.get(url, headers=headers)
+        response = requests.post(url, headers=headers, json=payload)
         if response.status_code == 404:
             print(f"Token not found: {contract_address}")
             return None
@@ -67,13 +75,16 @@ def get_coin_data(contract_address, asset_platform_id='solana', cache_file='coin
         response.raise_for_status()
         data = response.json()
         
-        # Extract relevant fields
+        # Extract relevant fields from Helius response
+        token_info = data.get('result', {}).get('token_info', {})
+        price_info = token_info.get('price_info', {})
+        
         coin_data = {
-            'name': data.get('name', 'Unknown'),
-            'symbol': data.get('symbol', '').upper(),
-            'current_price': data.get('market_data', {}).get('current_price', {}).get('usd'),
-            'web_slug': data.get('web_slug'),
-            'asset_platform_id': data.get('asset_platform_id')
+            'name': data.get('result', {}).get('content', {}).get('metadata', {}).get('name', 'Unknown'),
+            'symbol': token_info.get('symbol', '').upper(),
+            'current_price': price_info.get('price_per_token'),
+            'web_slug': None,  # Not available in Helius response
+            'asset_platform_id': 'solana'  # Hardcoded since we're using Solana
         }
         
         # Update cache
@@ -88,7 +99,7 @@ def get_coin_data(contract_address, asset_platform_id='solana', cache_file='coin
         return coin_data
         
     except requests.exceptions.RequestException as e:
-        print(f"CoinGecko API error: {str(e)}")
+        print(f"Helius API error: {str(e)}")
         return None
 
 def analyze_swap_transactions(transactions, wallet_address):
