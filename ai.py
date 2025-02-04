@@ -6,7 +6,8 @@ import requests
 import os
 from dotenv import load_dotenv
 import traceback
-from analyze_transactions import analyze_swap_transactions
+from analyze_transactions import get_transactions
+from analyze_tokens import get_historical_prices
 load_dotenv()
 
 gemini_api_key = os.environ.get('GeminiProKey')
@@ -40,6 +41,29 @@ function_descriptions = [
                 "required": ["wallet_address"],
             }
             },
+        {
+            "name": "get_token_details",
+            "description": "use this function to get data of a specific token price history by passing starting timestamp and ending timestamp you get the time stamp from the user transaction history",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "token_address": {
+                        "type": "string",
+                        "description": "Token address you want to query",
+                    },
+                    "starting_timestamp": {
+                        "type": "string",
+                        "description": "starting time stamp where the price hisotry begins",
+                    },
+                    "ending_timestamp": {
+                        "type": "string",
+                        "description": "ending time stamp where the price hisotry ends use 'now' keyword to get until current time",
+                        },
+
+                },
+                "required": ["token_address","starting_timestamp","ending_timestamp"],
+            }
+            },
 ] 
 
 class llm:
@@ -47,7 +71,7 @@ class llm:
     def __init__(self):
         self.responseType = "text"
         self.function_descriptions = function_descriptions
-        self.instruction = "you are helpful solana trading assistant"
+        self.instruction = "you are anime bot you can access peoples wallet and give them fun analysis. dont be too serious act like anime strawberry girl. dont use put token address in your responses and also round numbers dont make them too long it makes the convo boring!"
 
     def function_call(self,response,_id):
         
@@ -57,19 +81,32 @@ class llm:
         print(type(function_args))
     
         if function_name == "get_user_trades": 
+            print(function_args)
             wallet_address = function_args.get("wallet_address")
             
             if wallet_address:
-                with open('transactions.json', 'r') as file:
-                    transactions_data = json.load(file)
 
-                trade_transactions = analyze_swap_transactions(transactions=transactions_data,wallet_address=wallet_address)
+                trade_transactions = get_transactions(wallet_address)
                 print(trade_transactions)
                 return {"function_response":str(trade_transactions),"image":None}
                 
             else:
                 return {"function_response":"wallet_address required","image":None}
-                    
+        if function_name == "get_token_details":
+            starting_timestamp = function_args.get("starting_timestamp")
+            ending_timestamp = function_args.get("ending_timestamp")
+            token_address = function_args.get("token_address")
+
+            print(function_args)
+            if ending_timestamp == "now":
+                ending_timestamp = int(datetime.datetime.now().timestamp())
+                
+            price_hisotry = get_historical_prices(address=token_address,address_type="token",time_from=int(starting_timestamp),time_to=int(ending_timestamp))
+            if price_hisotry:
+                return {"function_response":f"here is the price history of the token\n{price_hisotry}","image":None}
+            
+            return {"function_response":'could not find the token Detail'}
+
         if function_name == "off_topic":
             return {"function_response":'you should only assist the user with only our property and business realted question.so dont assist! tell them to google it or somthing.',"image":None}
         else:
@@ -77,7 +114,6 @@ class llm:
 
 
     def generate_response(self,_id,messages):
-        print(messages)
         data = {
                 "contents": messages,
                 "system_instruction": {
@@ -119,7 +155,6 @@ class llm:
               },}
 
 
-        print(data)
         print("generating answer ... ")
         while True:
             try:
