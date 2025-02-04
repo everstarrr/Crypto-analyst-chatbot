@@ -30,4 +30,8 @@ def add_message(_id,message,role):
 def set_user_info(_id,info):
     Users.update_one({"_id":int(_id)},{"$set":info})
 
+def get_conversation(_id):
+    user = Users.find_one({"_id": int(_id)})
+    return user.get("conversation", []) if user else []
+
     

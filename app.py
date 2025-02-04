@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, make_response
 import json
 import telebot
 import os
@@ -83,7 +83,86 @@ def chat(user):
         print(f"error: {e}")
        
 
-    
+@app.route('/api/chat/send_message', methods=['POST'])
+def api_send_message():
+    try:
+        data = request.get_json()
+        user_id = data.get('user_id')
+        message_text = data.get('message')
+        
+        if not user_id or not message_text:
+            return jsonify({"status": "error", "message": "Missing user_id or message"}), 400
+        
+        # Database operations
+        database.register(user_id)
+        prompt = [{"text": message_text}]
+        conversation = database.add_message(user_id, prompt, "user")
+        
+        # Generate AI response
+        llm = ai.llm()
+        ai_response = llm.generate_response(user_id, conversation)
+        response_data = [{"text": ai_response}]
+        database.add_message(user_id, response_data, "model")
+        
+        return jsonify({
+            "status": "success",
+            "response": ai_response,
+            "conversation_id": user_id
+        })
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
+
+@app.route('/api/chat/reset', methods=['POST'])
+def api_reset():
+    try:
+        data = request.get_json()
+        user_id = data.get('user_id')
+        
+        if not user_id:
+            return jsonify({"status": "error", "message": "Missing user_id"}), 400
+            
+        database.reset_conversation(user_id)
+        return jsonify({
+            "status": "success",
+            "message": "Conversation reset successfully",
+            "user_id": user_id
+        })
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
+
+@app.route('/api/chat/history', methods=['POST'])
+def api_history():
+    try:
+        data = request.get_json()
+        user_id = data.get('user_id')
+        
+        if not user_id:
+            return jsonify({"status": "error", "message": "Missing user_id"}), 400
+            
+        conversation = database.get_conversation(user_id)
+        
+        # Process conversation history
+        processed_history = [
+            {
+                "role": msg["role"],
+                "message": part["text"]
+            }
+            for msg in reversed(conversation)
+            for part in msg["parts"]
+            if msg["role"] in ["user", "model"]
+            and "text" in part
+            and not part.get("functionCall")
+            and not part.get("functionResponse")
+        ]
+
+        return jsonify({
+            "status": "success",
+            "user_id": user_id,
+            "history": processed_history
+        })
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
+
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=True)
 
