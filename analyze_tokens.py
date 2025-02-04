@@ -50,7 +50,7 @@ def get_historical_prices(
         cache_entry = cache[cache_key]
         cache_age = datetime.now() - datetime.fromisoformat(cache_entry['fetch_time'])
         
-        if cache_age <= timedelta(hours=6):
+        if cache_age <= timedelta(hours=3):
             # Return False if cached items are empty
             if not cache_entry['items']:
                 return False

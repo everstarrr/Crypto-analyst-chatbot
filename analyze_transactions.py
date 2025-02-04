@@ -203,7 +203,7 @@ def get_transactions(wallet_address, cache_file='transactions_cache.json'):
         cache_entry = cache[cache_key]
         cache_age = datetime.now() - datetime.fromisoformat(cache_entry['fetch_time'])
         
-        if cache_age <= timedelta(hours=6):
+        if cache_age <= timedelta(hours=1):
             return cache_entry['filtered_data']
 
     # API call when no valid cache exists

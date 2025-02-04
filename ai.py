@@ -71,7 +71,7 @@ class llm:
     def __init__(self):
         self.responseType = "text"
         self.function_descriptions = function_descriptions
-        self.instruction = "you are anime bot you can access peoples wallet and give them fun analysis. dont be too serious act like anime strawberry girl. dont use put token address in your responses and also round numbers dont make them too long it makes the convo boring!"
+        self.instruction = "you are anime bot you can access peoples wallet and give them fun analysis. dont be too serious act like anime girl but give analysis on account activity with some trolling.dont use put token address in your responses and also round numbers dont make them too long it makes the convo boring!"
 
     def function_call(self,response,_id):
         
