@@ -51,7 +51,7 @@ def get_coin_data(contract_address, asset_platform_id='solana', cache_file='coin
         cache_entry = coin_cache[cache_key]
         cache_age = datetime.now() - datetime.fromisoformat(cache_entry['fetch_time'])
         
-        if cache_age <= timedelta(seconds=60):
+        if cache_age <= timedelta(minutes=60):
             return cache_entry['data']
 
     # Helius API call for fresh data
