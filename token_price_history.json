@@ -173,5 +173,65 @@
         "price": "0.0172 USD"
       }
     ]
+  },
+  "CreiuhfwdWCN5mJbMJtA9bBpYQrQF2tCBuZwSPWfpump-token-12H-1738548495-1738796361-solana-USD": {
+    "fetch_time": "2025-02-06T01:59:22.125352",
+    "items": [
+      {
+        "time": "2025-02-03 15:00:00",
+        "timestamp": 1738584000,
+        "price": "0.0164 USD"
+      },
+      {
+        "time": "2025-02-04 03:00:00",
+        "timestamp": 1738627200,
+        "price": "0.0171 USD"
+      },
+      {
+        "time": "2025-02-04 15:00:00",
+        "timestamp": 1738670400,
+        "price": "0.0144 USD"
+      },
+      {
+        "time": "2025-02-05 03:00:00",
+        "timestamp": 1738713600,
+        "price": "0.0154 USD"
+      },
+      {
+        "time": "2025-02-05 15:00:00",
+        "timestamp": 1738756800,
+        "price": "0.0130 USD"
+      }
+    ]
+  },
+  "CreiuhfwdWCN5mJbMJtA9bBpYQrQF2tCBuZwSPWfpump-token-12H-1738548495-1738798087-solana-USD": {
+    "fetch_time": "2025-02-06T02:28:08.193296",
+    "items": [
+      {
+        "time": "2025-02-03 15:00:00",
+        "timestamp": 1738584000,
+        "price": "0.0164 USD"
+      },
+      {
+        "time": "2025-02-04 03:00:00",
+        "timestamp": 1738627200,
+        "price": "0.0171 USD"
+      },
+      {
+        "time": "2025-02-04 15:00:00",
+        "timestamp": 1738670400,
+        "price": "0.0144 USD"
+      },
+      {
+        "time": "2025-02-05 03:00:00",
+        "timestamp": 1738713600,
+        "price": "0.0154 USD"
+      },
+      {
+        "time": "2025-02-05 15:00:00",
+        "timestamp": 1738756800,
+        "price": "0.0132 USD"
+      }
+    ]
   }
 }

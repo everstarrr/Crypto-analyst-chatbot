@@ -1,9 +1,9 @@
 {
   "CkBWowCj1SFFVDk8Fkn9b2S3gV8kgBm9MEPG2YQvmhFB-filtered-transactions": {
-    "fetch_time": "2025-02-05T00:05:47.950686",
+    "fetch_time": "2025-02-06T01:56:31.908888",
     "filtered_data": [
       {
-        "time_ago": "2 hours ago",
+        "time_ago": "1 day ago",
         "timestamp": 1738692671,
         "time": "2025-02-04 21:11:11",
         "source": "PUMP_FUN",
@@ -14,13 +14,13 @@
             "address": "Fg7Xut5XChVCNtMCfSHhegEd3fkDcQn3T5yX4uGTpump",
             "amount": 18264574.712118,
             "name": "Winnie Has Anxiety",
-            "current_price": 6.27754e-06
+            "current_price": 5.77719e-06
           }
         ],
         "bought_tokens": []
       },
       {
-        "time_ago": "2 hours ago",
+        "time_ago": "1 day ago",
         "timestamp": 1738692662,
         "time": "2025-02-04 21:11:02",
         "source": "PUMP_FUN",
@@ -31,13 +31,13 @@
             "address": "Fg7Xut5XChVCNtMCfSHhegEd3fkDcQn3T5yX4uGTpump",
             "amount": 6088191.570705,
             "name": "Winnie Has Anxiety",
-            "current_price": 6.27754e-06
+            "current_price": 5.77719e-06
           }
         ],
         "bought_tokens": []
       },
       {
-        "time_ago": "1 day ago",
+        "time_ago": "2 days ago",
         "timestamp": 1738548495,
         "time": "2025-02-03 05:08:15",
         "source": "RAYDIUM",
@@ -53,7 +53,7 @@
             "address": "So11111111111111111111111111111111111111112",
             "amount": 1.0,
             "name": "Wrapped SOL",
-            "current_price": 207.08801
+            "current_price": 199.24895
           }
         ],
         "bought_tokens": [
@@ -62,7 +62,7 @@
             "address": "CreiuhfwdWCN5mJbMJtA9bBpYQrQF2tCBuZwSPWfpump",
             "amount": 17412.765636,
             "name": "PYTHIA",
-            "current_price": 0.01598
+            "current_price": 0.013171
           }
         ]
       }

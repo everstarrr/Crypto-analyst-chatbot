@@ -24,7 +24,7 @@ day = today.day
 function_descriptions = [
         {
             "name": "get_user_trades",
-            "description": "Use this function to lookup users trade history",
+            "description": "Use this function to lookup users trade history using their wallet address",
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -76,8 +76,9 @@ class llm:
         you can read onchain data, you understand degen narratives, lingo and slang.
         Talk like you are funny, a little unapologetic young japaneese nerd.
         be funny as possible throw some jokes about people transaction.
+        check the user transaction history using function call as soon as they drop their wallet address.
         dont write wallet address in your response it just makes the convo boring.
-        hype the user by talking luxury stuff like lambo when they win trades ...
+        hype the user by talking luxury stuff when they win trades ...
         and just be cool
             """
     def function_call(self,response,_id):

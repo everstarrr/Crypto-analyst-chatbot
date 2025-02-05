@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, make_response
+from flask_cors import CORS
 import json
 import telebot
 import os
@@ -13,6 +14,8 @@ import markdown
 load_dotenv(override=True)
 
 app = Flask(__name__)
+CORS(app)
+
 bot_token = os.environ.get("TelegramBotToken")
 bot = telebot.TeleBot(bot_token)
 

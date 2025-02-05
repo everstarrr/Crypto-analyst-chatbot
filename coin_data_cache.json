@@ -1,20 +1,20 @@
 {
   "solana-So11111111111111111111111111111111111111112": {
-    "fetch_time": "2025-02-05T00:05:47.427714",
+    "fetch_time": "2025-02-06T01:56:31.424553",
     "data": {
       "name": "Wrapped SOL",
       "symbol": "SOL",
-      "current_price": 207.08801,
+      "current_price": 199.24895,
       "web_slug": null,
       "asset_platform_id": "solana"
     }
   },
   "solana-CreiuhfwdWCN5mJbMJtA9bBpYQrQF2tCBuZwSPWfpump": {
-    "fetch_time": "2025-02-05T00:05:47.946803",
+    "fetch_time": "2025-02-06T01:56:31.906455",
     "data": {
       "name": "PYTHIA",
       "symbol": "PYTHIA",
-      "current_price": 0.01598,
+      "current_price": 0.013171,
       "web_slug": null,
       "asset_platform_id": "solana"
     }
@@ -40,11 +40,11 @@
     }
   },
   "solana-Fg7Xut5XChVCNtMCfSHhegEd3fkDcQn3T5yX4uGTpump": {
-    "fetch_time": "2025-02-05T00:05:46.903647",
+    "fetch_time": "2025-02-06T01:56:30.851001",
     "data": {
       "name": "Winnie Has Anxiety",
       "symbol": "WINNIE",
-      "current_price": 6.27754e-06,
+      "current_price": 5.77719e-06,
       "web_slug": null,
       "asset_platform_id": "solana"
     }
