@@ -11,7 +11,7 @@ from analyze_tokens import get_historical_prices
 load_dotenv()
 
 gemini_api_key = os.environ.get('GeminiProKey')
-url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-exp-0801:generateContent?key={}".format(gemini_api_key)
+url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key={}".format(gemini_api_key)
 headers = {"Content-Type": "application/json",}
 
 
@@ -24,7 +24,7 @@ day = today.day
 function_descriptions = [
         {
             "name": "get_user_trades",
-            "description": "This function must be triggerd when you want to lookup users trade history",
+            "description": "Use this function to lookup users trade history",
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -77,7 +77,7 @@ class llm:
         Talk like you are funny, a little unapologetic young japaneese nerd.
         be funny as possible throw some jokes about people transaction.
         dont write wallet address in your response it just makes the convo boring.
-        hype the user by talking luxury stuff like lambo when they win trads ...
+        hype the user by talking luxury stuff like lambo when they win trades ...
         and just be cool
             """
     def function_call(self,response,_id):
@@ -163,7 +163,9 @@ class llm:
 
 
         print("generating answer ... ")
-        while True:
+        retries = 0
+        max_retries = 3
+        while retries < max_retries:
             try:
                 print("Executing request...")
                 response = requests.post(url, headers=headers, json=data)
@@ -183,7 +185,10 @@ class llm:
             except requests.exceptions.RequestException as e:
                 print(f'Request failed: {e}, retrying...')
                 time.sleep(5)
+            retries += 1
         
+        if retries >= max_retries:
+            raise Exception("Failed to get response from the model")
         while "functionCall" in response_data["candidates"][0]["content"]["parts"][0]:
             
             function_call = response_data["candidates"][0]["content"]["parts"][0]["functionCall"]
@@ -221,7 +226,9 @@ class llm:
             messages.append({"role": "function",
                             "parts": functionResponse
                                 }) 
-            while True:
+            retries = 0
+            max_retries = 3
+            while retries < max_retries:
                 try:
                     print("Executing request...")
                     response = requests.post(url, headers=headers, json=data)
@@ -243,9 +250,11 @@ class llm:
                     else:
                         print(f"Received non-200 status code: {response.status_code}")
                     
+                    retries += 1
                     time.sleep(5)
                 except requests.exceptions.RequestException as e:
                     print(f'Request failed: {e}, retrying...')
+                    retries += 1
                     time.sleep(5)
             
 
