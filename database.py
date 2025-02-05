@@ -13,25 +13,25 @@ Users = db['users']
 instruction = "you are solana crypto trading assistant"
 
 def reset_conversation(_id):
-    Users.update_one({"_id":int(_id)},{"$set":{"conversation":[]}})
+    Users.update_one({"_id":_id},{"$set":{"conversation":[]}})
 
 def register(_id): 
-    existance = Users.find_one({"_id":int(_id)})
+    existance = Users.find_one({"_id":_id})
     if existance == None:
         Users.insert_one({"_id":_id,"conversation":[]})
     
 def add_message(_id,message,role):
     conversation = Users.find_one({"_id":_id}).get("conversation")
     conversation.append({"role":role,"parts":message})
-    Users.update_one({"_id":int(_id)},{"$set":{"conversation":conversation}})
+    Users.update_one({"_id":_id},{"$set":{"conversation":conversation}})
     return conversation
   
 
 def set_user_info(_id,info):
-    Users.update_one({"_id":int(_id)},{"$set":info})
+    Users.update_one({"_id":_id},{"$set":info})
 
 def get_conversation(_id):
-    user = Users.find_one({"_id": int(_id)})
+    user = Users.find_one({"_id": _id})
     return user.get("conversation", []) if user else []
 
     
